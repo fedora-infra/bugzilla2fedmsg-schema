@@ -54,18 +54,16 @@ line-length = 100
 select = ["E", "F", "W", "I", "UP", "S", "B", "RUF"]
 line-length = 100
 target-version = "py38"
-# ignore = ["RUF010", "UP038"]
+ignore = ["RUF012"]
 
 [tool.ruff.per-file-ignores]
-"tests/*" = ["S101"]
-"tests/test_schemas.py" = ["E501"]
-"tests/conftest.py" = ["E501"]
+"tests/*" = ["S101", "E501"]
+"bugzilla2fedmsg_schema/__init__.py" = ["F401"]
 
 [tool.coverage.run]
 # Track what conditional branches are covered.
 branch = true
 source = [
-    "bugzilla2fedmsg",
     "bugzilla2fedmsg_schema",
 ]
 

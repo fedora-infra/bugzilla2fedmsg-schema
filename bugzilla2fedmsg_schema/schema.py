@@ -1,6 +1,7 @@
 """fedora-messaging schema for bugzilla2fedmsg."""
 
 import copy
+import typing
 
 from fedora_messaging import message
 from fedora_messaging.schema_utils import libravatar_url
@@ -159,7 +160,7 @@ class MessageV1(BaseMessage):
     bugzilla2fedmsg commit 08b3e0c5 with Bugzilla 4 compatibility DISABLED.
     """
 
-    body_schema = {
+    body_schema: typing.ClassVar = {
         "id": "http://fedoraproject.org/message-schema/bugzilla2fedmsg#",
         "$schema": "http://json-schema.org/draft-04/schema#",
         "description": "Schema for message sent by Bugzilla (v1, BZ4 compat disabled)",
