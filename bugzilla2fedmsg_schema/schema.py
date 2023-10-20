@@ -45,9 +45,7 @@ class BaseMessage(message.Message):
             tmpl = "{user} updated {fields} on RHBZ#{idx} '{title}'"
             return tmpl.format(user=user, fields=fields, idx=idx, title=title)
         tmpl = "{user} updated {fields} for {target} on RHBZ#{idx} '{title}'"
-        return tmpl.format(
-            user=user, fields=fields, target=target, idx=idx, title=title
-        )
+        return tmpl.format(user=user, fields=fields, target=target, idx=idx, title=title)
 
     @property
     def url(self):

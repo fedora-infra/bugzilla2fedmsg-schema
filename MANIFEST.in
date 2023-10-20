@@ -1,4 +1,4 @@
-include *.example *.rst
+include *.md
 include LICENSE
 include tox.ini
 graft tests
