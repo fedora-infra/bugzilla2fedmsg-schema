@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "bugzilla2fedmsg-schema"
-version = "1.0.0"
+version = "1.1.0"
 description = "Fedora Messaging schemas for bugzilla2fedmsg"
 authors = ["Fedora Infrastructure <infrastructure@lists.fedoraproject.org>"]
 license = "LGPL-2.1-or-later"
