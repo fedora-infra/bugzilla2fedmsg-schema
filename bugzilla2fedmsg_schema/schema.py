@@ -6,7 +6,7 @@ import typing
 from fedora_messaging import message
 from fedora_messaging.schema_utils import libravatar_url
 
-from .utils import comma_join, email_to_fas
+from .utils import comma_join
 
 
 class BaseMessage(message.Message):
@@ -21,7 +21,7 @@ class BaseMessage(message.Message):
     @property
     def summary(self):
         """A summary of the message."""
-        (user, _) = email_to_fas(self._primary_email)
+        user = self.agent_name or self._primary_email
         idx = self.bug["id"]
         title = self.bug["summary"]
         action = self.body["event"]["action"]
@@ -65,13 +65,7 @@ class BaseMessage(message.Message):
     @property
     def usernames(self):
         """List of users affected by the action that generated this message."""
-        users = set()
-        emails = self._all_emails
-        for email in emails:
-            (user, is_fas) = email_to_fas(email)
-            if is_fas:
-                users.add(user)
-        return list(users)
+        return self.body.get("usernames", [])
 
     @property
     def packages(self):
@@ -106,51 +100,13 @@ class BaseMessage(message.Message):
         return self.body["event"]["user"]["login"]
 
     @property
-    def _all_emails(self):
-        """List of email addresses of all users relevant to the action
-        that generated this message.
-        """
-        users = set()
-
-        # user from the event dict: person who triggered the event
-        users.add(self._primary_email)
-
-        # bug reporter and assignee
-        users.add(self.bug["reporter"]["login"])
-        users.add(self.assigned_to_email)
-
-        for change in self.body["event"].get("changes", []):
-            if change["field"] == "cc":
-                # anyone added to CC list
-                for user in change["added"].split(","):
-                    user.strip()
-                    if user:
-                        users.add(user)
-            elif change["field"] == "flag.needinfo":
-                # anyone for whom a 'needinfo' flag is set
-                # this is extracting the email from a value like:
-                # "? (senrique@redhat.com)"
-                user = change["added"].split("(", 1)[1].rsplit(")", 1)[0]
-                if user:
-                    users.add(user)
-
-        # Strip anything that made it in erroneously
-        for user in list(users):
-            if user.endswith("lists.fedoraproject.org"):
-                users.remove(user)
-
-        users = list(users)
-        users.sort()
-        return users
-
-    @property
     def agent_name(self):
         """Return the name of the user who reported the bug message"""
-        return self.body["bug"]["reporter"]["real_name"]
+        return self.body.get("agent_name")
 
     @property
     def app_name(self):
-        return "bugzilla2fedmsg"
+        return "Bugzilla"
 
 
 class MessageV1(BaseMessage):

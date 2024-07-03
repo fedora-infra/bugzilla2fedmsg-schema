@@ -21,15 +21,3 @@ def comma_join(fields, oxford=True):
             result += ","
         result += " and %s" % fmt(fields[-1])
         return result
-
-
-def email_to_fas(email):
-    """Try to get a FAS username from an email address. For now, this
-    is a dumb version which just does the 'easy' part of what the full
-    fat fedmsg_meta email2fas did - for fedoraproject.org addresses,
-    we can just do this easily. For all other addresses, we really
-    need that full feature added to fedora-messaging.
-    """
-    if email.endswith("@fedoraproject.org"):
-        return (email.rsplit("@", 1)[0], True)
-    return (email, False)

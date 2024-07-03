@@ -10,6 +10,7 @@ from bugzilla2fedmsg_schema import MessageV1, MessageV1BZ4
 BUG_CREATE_MESSAGE_NO_BZ4 = MessageV1(
     topic="bugzilla.bug.new",
     body={
+        "agent_name": "dgunchev",
         "bug": {
             "whiteboard": "abrt_hash:ca3702e55e5d4a4f3057d7a62ad195583a2b9a409990f275a36c87373bd77445;",
             "classification": "Fedora",
@@ -98,6 +99,7 @@ BUG_CREATE_MESSAGE_NO_BZ4 = MessageV1(
 BUG_CREATE_MESSAGE_BZ4 = MessageV1BZ4(
     topic="bugzilla.bug.new",
     body={
+        "agent_name": "dgunchev",
         "bug": {
             "whiteboard": "abrt_hash:ca3702e55e5d4a4f3057d7a62ad195583a2b9a409990f275a36c87373bd77445;",
             "classification": "Fedora",
@@ -189,6 +191,8 @@ BUG_CREATE_MESSAGE_BZ4 = MessageV1BZ4(
 BUG_MODIFY_MESSAGE_NO_BZ4 = MessageV1(
     topic="bugzilla.bug.update",
     body={
+        "agent_name": "churchyard",
+        "usernames": ["churchyard", "upstream-release-monitoring", "adamw"],
         "bug": {
             "whiteboard": "",
             "classification": "Fedora",
@@ -273,6 +277,8 @@ BUG_MODIFY_MESSAGE_NO_BZ4 = MessageV1(
 BUG_MODIFY_MESSAGE_BZ4 = MessageV1BZ4(
     topic="bugzilla.bug.update",
     body={
+        "agent_name": "churchyard",
+        "usernames": ["churchyard", "upstream-release-monitoring", "adamw"],
         "bug": {
             "whiteboard": "",
             "classification": "Fedora",
