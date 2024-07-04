@@ -4,7 +4,6 @@ Authors:    Adam Williamson <awilliam@redhat.com>
 
 """
 
-
 from jsonschema.exceptions import ValidationError
 
 from bugzilla2fedmsg_schema import MessageV1BZ4

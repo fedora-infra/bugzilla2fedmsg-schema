@@ -4,7 +4,6 @@ Authors:    Adam Williamson <awilliam@redhat.com>
 
 """
 
-
 from bugzilla2fedmsg_schema import MessageV1, MessageV1BZ4
 
 BUG_CREATE_MESSAGE_NO_BZ4 = MessageV1(
