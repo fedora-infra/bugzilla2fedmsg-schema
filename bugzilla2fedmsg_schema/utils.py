@@ -5,7 +5,7 @@ def comma_join(fields, oxford=True):
     """Join together words."""
 
     def fmt(field):
-        return "'%s'" % field
+        return f"'{field}'"
 
     if not fields:
         # unfortunately this happens: we get 'modify' messages with no
@@ -19,5 +19,5 @@ def comma_join(fields, oxford=True):
         result = ", ".join([fmt(f) for f in fields[:-1]])
         if oxford:
             result += ","
-        result += " and %s" % fmt(fields[-1])
+        result += f" and {fmt(fields[-1])}"
         return result
