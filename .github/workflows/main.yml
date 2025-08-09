@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Install dependencies
         run: |
-          dnf install -y git tox
+          dnf install -y git tox libffi-devel
           pip install poetry>=1.2
       - name: Mark the working directory as safe for Git
         run: git config --global --add safe.directory $PWD
@@ -36,7 +36,7 @@ jobs:
           fetch-depth: 0
       - name: Install dependencies
         run: |
-          dnf install -y git tox
+          dnf install -y git tox libffi-devel
           pip install poetry>=1.2
       - name: Mark the working directory as safe for Git
         run: git config --global --add safe.directory $PWD
