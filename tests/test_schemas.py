@@ -1,9 +1,8 @@
-""" Tests for bugzilla2fedmsg_schemas.
+"""Tests for bugzilla2fedmsg_schemas.
 
 Authors:    Adam Williamson <awilliam@redhat.com>
 
 """
-
 
 from jsonschema.exceptions import ValidationError
 

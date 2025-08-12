@@ -1,9 +1,8 @@
-""" Test fixtures for bugzilla2fedmsg.relay.
+"""Test fixtures for bugzilla2fedmsg.relay.
 
 Authors:    Adam Williamson <awilliam@redhat.com>
 
 """
-
 
 from bugzilla2fedmsg_schema import MessageV1, MessageV1BZ4
 
