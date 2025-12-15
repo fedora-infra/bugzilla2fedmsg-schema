@@ -551,13 +551,13 @@ test-randomorder = ["pytest-randomly"]
 
 [[package]]
 name = "diff-cover"
-version = "9.7.2"
+version = "10.0.0"
 description = "Run coverage and linting reports on diffs"
 optional = false
 python-versions = ">=3.9"
 files = [
-    {file = "diff_cover-9.7.2-py3-none-any.whl", hash = "sha256:cd6498620c747c2493a6c83c14362c32868bfd91cd8d0dd093f136070ec4ffc5"},
-    {file = "diff_cover-9.7.2.tar.gz", hash = "sha256:872c820d2ecbf79c61d52c7dc70419015e0ab9289589566c791dd270fc0c6e3b"},
+    {file = "diff_cover-10.0.0-py3-none-any.whl", hash = "sha256:b3a095d733ba715df6098f51d9155607e4752f82be8a6cbba9bfcf77df736852"},
+    {file = "diff_cover-10.0.0.tar.gz", hash = "sha256:92ead026726055bf4c1a90cd7ff83544049d467840e07c66289a4351126dbe25"},
 ]
 
 [package.dependencies]
@@ -1576,4 +1576,4 @@ testing = ["coverage[toml]", "zope.event", "zope.testing"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9.0"
-content-hash = "ada40800f165fad30ebee0d34db84b2c2060acd6b9f1ca2f470cbb16703a17f7"
+content-hash = "2814ca29147a8c856c2450305d89c1448c46606b7dd8abddc9f0327c93b1063b"
